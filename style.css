@@ -1,0 +1,39 @@
+/* --- Design Tokens (Change these to match your vibe) --- */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --accent-color: #0066cc;
+    --font-main: system-ui, -apple-system, sans-serif;
+}
+
+/* --- Basic Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6;
+}
+
+/* --- Minimal Layout Skeleton --- */
+header, main, footer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    padding: 4rem 0;
+}
+
+nav a {
+    color: var(--accent-color);
+    text-decoration: none;
+    margin-right: 1.5rem;
+}
