@@ -25,28 +25,59 @@ body {
 }
 
 /* --- Minimal Layout Skeleton --- */
-header, main, footer {
+header {
+    width: 100%;
+    padding: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+footer {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
 }
 
-section {
-    padding: 4rem 0;
+main {
+    width: 100%;
+}
+
+section:not(#hero) {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 nav a {
-    color: var(--accent-color);
+    color: #ffffff;
     text-decoration: none;
-    margin-right: 1.5rem;
+    margin-left: 2rem;
+    margin-right: 0;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #b4c8ff;
 }
 
 /* --- Scroll Animations --- */
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* Slower fade in */
 }
 
 .fade-in.visible {
@@ -56,10 +87,23 @@ nav a {
 
 /* --- Section Styling --- */
 #hero {
-    min-height: 80vh;
+    min-height: 100vh; /* Changed from 80vh to fill entire screen vertically */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(var(--bg-angle, 135deg), #1a1b35 -20%, #090a0f 30%, #090a0f 70%, #1a1b35 120%); /* Light shining from far outside edges */
+    color: #ffffff; /* Contrast text */
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
 }
 
 #hero h1 {
@@ -70,7 +114,17 @@ nav a {
 .quote {
     font-size: 1.25rem;
     font-style: italic;
-    color: #666;
+    color: #b0b0c0; /* Light muted indigo */
+}
+
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none; /* Allows mouse events to pass to #hero */
 }
 
 .skills-container {
