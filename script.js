@@ -2,5 +2,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Portfolio framework ready for the human-art phase!");
     
-    // Future interactive elements (e.g., smooth scrolling, dark mode, filtering) will go here.
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.fade-in').forEach(element => {
+        observer.observe(element);
+    });
 });
